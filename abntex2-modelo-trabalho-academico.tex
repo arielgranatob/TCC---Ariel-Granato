@@ -1,0 +1,690 @@
+%% abtex2-modelo-trabalho-academico.tex, v-1.7.1 laurocesar
+%% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://abntex2.googlecode.com/
+%%
+%% This work consists of the files abntex2-modelo-trabalho-academico.tex,
+%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Trabalho Academico (tese de doutorado, dissertacao de
+% mestrado e trabalhos monograficos em geral) em conformidade com 
+% ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
+% Apresentacao
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
+
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{cmap}				% Mapear caracteres especiais no PDF
+%\usepackage{lmodern}			% Usa a fonte Latin Modern		
+%\usepackage{helvet}
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{underscore}
+\usepackage{float}
+\usepackage[final]{pdfpages}
+\usepackage{multicol}
+
+% ---
+\usepackage{fontspec}
+ 
+\setmainfont{Arial}
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+%\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+\renewcommand{\backrefpagesname}{}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		%Citado na página #2.%
+	\else
+		%Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+%% do baffa procurar, procurar
+% \titulo{\textit{ DATABASE FOR OPHTHALMOLOGY RESEARCH}: UMA BASE DE %DADOS DE EXAMES OFTALMOLÓGICOS COM RECUPERAÇÃO DE DADOS BASEADO NO %CONTEÚDO}
+
+\titulo{Naive Bayes Aplicado ao Problema de Classificação Automática de Fake News  }
+
+
+\autor{Ariel Granato Bento}
+\local{Rio Pomba}
+\data{2021}
+\orientador{Wellington Moreira de Oliveira}
+%\instituicao{}
+\tipotrabalho{Trabalho de Conclusão de Curso}
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração 
+\preambulo{Trabalho de Conclusão curso  apresentado ao \textit Campus Rio Pomba, do Instituto Federal de Educação, Ciência e Tecnologia do Sudeste de Minas Gerais, como parte das exigências do curso de Bacharelado em Ciência da Computação para a obtenção do título de Bacharel em Ciência da Computação.}
+% ---
+
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={Ariel Granato Bento}, %procurar
+		pdfkeywords={content-based image retrieval}{desenvolvimento web}{exame de fundo de olho}{histograma backprojection}{íris}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
+    	filecolor=black,      		% color of file links
+		urlcolor=black,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\begin{center}
+\textbf{ 
+INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUDESTE DE MINAS GERAIS - CAMPUS RIO POMBA}
+\end{center}
+
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% Inserir a ficha bibliografica
+% ---
+
+% Para inserir a ficha catalográfica oficial da biblioteca, utilize:
+% \begin{fichacatalografica}
+%     \includepdf{fig_ficha_catalografica.pdf}
+% \end{fichacatalografica}
+
+% Para inserir a ficha catalográfica temporária, utilize:
+
+\begin{fichacatalografica}
+	\vspace*{\fill}					% Posição vertical
+	\hrule							% Linha horizontal
+	\begin{center}					% Minipage Centralizado
+	\begin{minipage}[c]{12.5cm}		% Largura
+	
+	FICHA CATALOGRÁFICA TEMPORÁRIA \\
+	\imprimirautor
+	
+	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+	\imprimirlocal, \imprimirdata-
+
+	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+	
+	\hspace{0.5cm}
+	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~Instituto Federal de Educação, Ciência e Tecnologia do Sudeste de Minas, Campus Rio Pomba,
+	\imprimirdata.}\\
+
+	
+	\end{minipage}
+	\end{center}
+	\hrule
+\end{fichacatalografica}
+% ---
+
+% ---
+% Inserir errata
+% ---
+%\begin{errata}
+%Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. %Exemplo:
+
+%\vspace{\onelineskip}
+%
+%FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
+%reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
+%rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
+%cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
+%Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+
+%\begin{table}[htb]
+%\center
+%\footnotesize
+%\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+%  \hline
+%   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê} % & \textbf{Leia-se}  \\
+%    \hline
+%    1 & 10 & auto-conclavo & autoconclavo\\
+%   \hline
+%\end{tabular}
+%\end{table}
+%
+%\end{errata}
+% ---
+
+% ---
+% Inserir folha de aprovação
+% ---
+
+% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
+% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
+% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
+% imagem da página assinada pela banca com o comando abaixo:
+%
+% \includepdf{folhadeaprovacao_final.pdf}
+%
+\begin{folhadeaprovacao}
+
+  \begin{center}
+    {\ABNTEXchapterfont\large\imprimirautor}
+
+    \vspace*{\fill}\vspace*{\fill}
+    {\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}
+    \vspace*{\fill}
+    
+    \hspace{.45\textwidth}
+    \begin{minipage}{.5\textwidth}
+        \imprimirpreambulo
+    \end{minipage}%
+    \vspace*{\fill}
+   \end{center}
+    
+   Trabalho aprovado. \imprimirlocal, 25 de novembro de 2020:
+
+   \assinatura{\textbf{\imprimirorientador} Orientador, IF Sudeste MG - Rio Pomba} 
+   \assinatura{\textbf{PROFESSOR X} \\ IF Sudeste MG - Rio Pomba}
+   \assinatura{\textbf{PROFESSOR Y} \\ IF Sudeste MG - Rio Pomba}
+      
+   \begin{center}
+    \vspace*{0.5cm}
+    {\large\imprimirlocal}
+    \par
+    {\large\imprimirdata}
+    \vspace*{1cm}
+  \end{center}
+  
+\end{folhadeaprovacao}
+% ---
+
+% ---
+% Dedicatória
+% ---
+
+%\begin{dedicatoria}
+%   \vspace*{\fill}
+%	\begin{flushright}
+	% criar uma frase de Dedicatoria 
+	%Frase do baffa, procurar
+%       \textit{ Este trabalho é dedicado às crianças adultas que,\\
+%       quando pequenas, sonharam em se tornar cientistas.}
+%    \end{flushright}
+%\end{dedicatoria}
+% ---
+
+% ---
+% Agradecimentos
+% ---
+\begin{agradecimentos}
+
+Agradeço...
+
+
+\end{agradecimentos}
+% ---
+
+% ---
+% Epígrafe
+% ---
+\begin{epigrafe}
+    \vspace*{\fill}
+	\begin{flushright}
+ 		\textit{``O impossível\\
+ 		é só questão de opinião"
+ 		\\(Chorão, 1996)}
+	\end{flushright}
+\end{epigrafe}
+% ---
+
+% ---
+% RESUMOS
+% ---
+
+% resumo em português
+\begin{resumo}
+Notícias sempre foram importantes para a sociedade, e hoje elas estão disponíveis
+tanto no formato tradicional (revistas e jornais) como no meio digital na internet (sites e
+redes sociais). Com o passar do tempo a internet foi se popularizando e se tornando
+uma fonte mais acessível de informações. Neste sentido, as redes sociais ocupam um
+lugar de destaque. Podendo conter vários tipos de notícias, elas nem sempre são uma
+fonte confiável de informação. Notícias falsas, também conhecidas como fake news,
+normalmente são criadas com o objetivo de prejudicar alguma pessoa, grupo, cultura,
+religião ou ideologia. A desinformação causada por uma fake news pode ter
+consequências graves no consumo de medicamentos, por exemplo, podendo acarretar
+graves doenças ou até mesmo a morte. Um dos grandes problemas relacionados à
+fake news é que muitas pessoas (principalmente aquelas com menor grau de
+instrução) não conseguem identificá-las. Por outro lado, esta tarefa pode ser facilitada
+por um computador. Dado que o computador não entende os textos da mesma forma
+que os humanos, os dados devem ser processados por um algoritmo e convertidos em
+um formato apropriado. Visto isso, este trabalho é o desenvolvimento de uma aplicação para a detecção de notícias falsas através do uso da técnica de Processamento de Linguagem Natural. Sendo utilizadas duas base de dados, um compilado com notícias claramente falsas e outra com títulos de notícias de portais com credibilidade na internet. O sistema faz a extração automática das notícias em tempo real e em seguida alimenta sua base de dados para classificar outras notícias diferentes. 
+\noindent 
+
+ \vspace{\onelineskip}
+    
+ \noindent
+ \textbf{Palavras-chaves}: Fake News. Inteligência Artificial. 
+\end{resumo}
+
+% resumo em inglês
+\begin{resumo}[Abstract]
+ \begin{otherlanguage*}{english}
+ News has always been important for a society, and today it is available both in the traditional format (magazines and newspapers) and digitally on the internet (websites and social networks). As time went by, the internet became more popular and became a more accessible source of information. In this sense, social networks occupy a prominent place. Although they may contain various types of reports, they are not always a reliable source of information. Fake news, also marked as fake news, is usually high with the aim of harming any person, group, culture, religion or ideology. The misinformation caused by a false news can have serious consequences on the consumption of medicines, for example, and can lead to serious illnesses or even death. On the other hand, this task can be facilitated by a computer. Given that the computer does not understand texts in the same way as humans, data must be processed by some algorithm and converted in an appropriate format. Using two databases, one compiled with clearly false news and other headlines from news portals with credibility on the internet. The system automatically extracts news in real time and then feeds its database to classify other different news.
+
+ \noindent 
+
+   \vspace{\onelineskip}
+ 
+   \noindent 
+   \textbf{Key-words}: Fake News. Artificial intelligence. 
+ \end{otherlanguage*}
+\end{resumo}
+
+
+% resumo em francês 
+%\begin{resumo}[Résumé]
+% \begin{otherlanguage*}{french}
+%    Il s'agit d'un résumé en français.
+% 
+%   \vspace{\onelineskip}
+% 
+%   \noindent
+%   \textbf{Mots-clés}: latex. abntex. publication de textes.
+% \end{otherlanguage*}
+%\end{resumo}
+
+% resumo em espanhol
+%\begin{resumo}[Resumen]
+% \begin{otherlanguage*}{spanish}
+%   Este es el resumen en español.
+%  
+%   \vspace{\onelineskip}
+% 
+%   \noindent
+%   \textbf{Palabras clave}: latex. abntex. publicación de textos.
+% \end{otherlanguage*}
+%\end{resumo}
+% ---
+
+% ---
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+
+\begin{siglas}
+    \item[ACC] Acurácia
+    \item[PLN] Processamento de Linguagem Natural
+\end{siglas}
+
+% ---
+
+% ---
+% inserir lista de símbolos
+% ---
+%\begin{simbolos}
+%  \item[$ \Lambda $] Lambda
+%\end{simbolos}
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\addcontentsline{arquivo}{unidade}{entrada}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+
+% ---------------------------------------------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ---------------------------------------------------------------------------------------------
+\textual
+\setcounter{page}{1}
+% ---------------------------------------------------------------------------------------------
+% Introdução
+% ---------------------------------------------------------------------------------------------
+\chapter*{Introdução}
+\addcontentsline{toc}{chapter}{\textbf{Introdução}}
+\markright{Introdução}
+\label{chapter:introducao}
+Notícias sempre foram importantes para a sociedade, e hoje elas estão disponíveis tanto no formato tradicional (revistas e jornais) como no meio digital na internet (sites e redes sociais). Com o passar do tempo a internet foi se popularizando e se tornando uma fonte mais acessível de informações. Neste sentido, as redes sociais ocupam um lugar de destaque, e podendo conter vários tipos de notícias elas nem sempre são uma fonte confiável de informação. 
+
+A desinformação causada por uma fake news pode ter consequências graves no consumo de medicamentos, por exemplo, podendo acarretar graves doenças ou até mesmo a morte. Um dos grandes problemas relacionados à fake news é que muitas pessoas (principalmente aquelas com menor grau de instrução) não conseguem identificá-las.
+
+As fake news, normalmente são criadas com o objetivo de prejudicar alguma pessoa, grupo, cultura, religião ou ideologia.
+
+Este tipo de notícia é escrito e publicado com a intenção de enganar, a fim de se obter ganhos financeiros ou políticos, muitas vezes com manchetes sensacionalistas, exageradas ou evidentemente falsas para chamar a atenção.
+
+Dado que o computador não entende os textos da mesma forma que os humanos, os dados devem ser processados por um algoritmo e convertidos em um formato apropriado, visto isso, o objetivo deste trabalho é desenvolver um algoritmo de Inteligência Artificial capaz de detectar se, através do título, determinada notícia é verdadeira ou falsa. Treinando uma base de dados com frases encontradas na internet, previamente identificadas como sendo fake news ou realmente uma notícia verdade, o algoritmo conseguiu identificar com precisão os títulos de notícias.
+
+O Processamento de Linguagem Natural (PLN) é a subárea da Inteligência Artificial (IA) que procura compreender melhor como uma máquina entende a linguagem dos seres humanos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ---------------------------------------------------------------------------------------------
+% Fundamentação Teórica
+% ---------------------------------------------------------------------------------------------
+\setcounter{chapter}{1}
+\chapter{Fundamentação Teórica}
+\label{chapter:fundamentacaoTeorica}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ---------------------------------------------------------------------------------------------
+% Revisão Bibliográfica
+% ---------------------------------------------------------------------------------------------
+\chapter{Trabalhos Relacionados}
+\label{chapter:trabalhosrelacionados}
+
+
+
+
+
+
+
+
+
+
+
+
+% ---------------------------------------------------------------------------------------------
+% Metodologia
+% ---------------------------------------------------------------------------------------------
+\chapter{Materiais e Métodos}
+\label{chapter:materiaisemetodos}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ---------------------------------------------------------------------------------------------
+% Experimentos
+% ---------------------------------------------------------------------------------------------
+\chapter{Experimentos e Resultados}
+\label{chapter:experimentosEResultados}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ---------------------------------------------------------------------------------------------
+% Considerações Finais
+% ---------------------------------------------------------------------------------------------
+\chapter{Conclusão}
+\label{chapter:conclusao}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ---
+% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+% ---
+\bookmarksetup{startatroot}% 
+% ---
+
+% ---------------------------------------------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ---------------------------------------------------------------------------------------------
+\postextual
+
+
+% ---------------------------------------------------------------------------------------------
+% Referências bibliográficas
+
+
+
+
+% ---------------------------------------------------------------------------------------------
+\bibliography{abntex2-modelo-references}
+
+% ---------------------------------------------------------------------------------------------
+% Glossário
+% ---------------------------------------------------------------------------------------------
+%
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+
+% ---------------------------------------------------------------------------------------------
+% Apêndices
+% ---------------------------------------------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+%  \begin{apendicesenv}
+% Imprime uma página indicando o início dos apêndices
+%\partapendices
+%\chapter{Modelagem do Sistema DOR}
+
+
+
+
+
+
+
+
+
+
+
+%\end{apendicesenv}
+% ---
+
+
+% ---------------------------------------------------------------------------------------------
+% Anexos
+% ---------------------------------------------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+%\begin{anexosenv}
+
+% Imprime uma página indicando o início dos anexos
+%\partanexos
+
+%\chapter{Protocolo de Aquisição de Imagens}
+
+
+
+
+
+
+
+
+%\end{anexosenv}
+
+% ---------------------------------------------------------------------------------------------
+% INDICE REMISSIVO
+% ---------------------------------------------------------------------------------------------
+
+\printindex
+
+\end{document}
