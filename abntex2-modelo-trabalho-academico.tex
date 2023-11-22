@@ -1,5 +1,7 @@
 %% abtex2-modelo-trabalho-academico.tex, v-1.7.1 laurocesar
 %% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%% CRIAR PLUGIN CHROME EM JS PARA ANALISAR OS TWEETERS
+
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -63,6 +65,8 @@
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
+\graphicspath{ {./imagens/} }
+
 \usepackage{underscore}
 \usepackage{float}
 \usepackage[final]{pdfpages}
@@ -85,11 +89,11 @@
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
 % --- 
-% CONFIGURAÇÕES DE PACOTES
+% combinações DE PACOTES
 % --- 
 
 % ---
-% Configurações do pacote backref
+% combinações do pacote backref
 % Usado sem a opção hyperpageref de backref
 %\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
 \renewcommand{\backrefpagesname}{}
@@ -112,13 +116,12 @@
 %% do baffa procurar, procurar
 % \titulo{\textit{ DATABASE FOR OPHTHALMOLOGY RESEARCH}: UMA BASE DE %DADOS DE EXAMES OFTALMOLÓGICOS COM RECUPERAÇÃO DE DADOS BASEADO NO %CONTEÚDO}
 
-\titulo{Naive Bayes Aplicado ao Problema de Classificação Automática de Fake News  }
-
+\titulo{UMA HEURÍSTICA PARA A DETECÇÃO DE \textit{FAKE NEWS} EM TÍTULOS DE NOTÍCIA UTILIZANDO PLN}
 
 \autor{Ariel Granato Bento}
 \local{Rio Pomba}
-\data{2021}
-\orientador{Wellington Moreira de Oliveira}
+\data{2023}
+\orientador{DSc. Wellington Moreira de Oliveira}
 %\instituicao{}
 \tipotrabalho{Trabalho de Conclusão de Curso}
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
@@ -128,7 +131,7 @@
 
 
 % ---
-% Configurações de aparência do PDF final
+% combinações de aparência do PDF final
 
 % alterando o aspecto da cor azul
 \definecolor{blue}{RGB}{41,5,195}
@@ -136,18 +139,18 @@
 % informações do PDF
 \makeatletter
 \hypersetup{
-     	%pagebackref=true,
+     	%pagebackref=True,
 		pdftitle={\@title}, 
 		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={Ariel Granato Bento}, %procurar
-		pdfkeywords={content-based image retrieval}{desenvolvimento web}{exame de fundo de olho}{histograma backprojection}{íris}, 
+		pdfkeywords={content-based inteligencia artificial}{processamento de linguagem natural}{pre processamento de texto}, 
 		colorlinks=true,       		% false: boxed links; true: colored links
     	linkcolor=black,          	% color of internal links
     	citecolor=black,        		% color of links to bibliography
     	filecolor=black,      		% color of file links
 		urlcolor=black,
-		bookmarksdepth=4
+		bookmarksdepth=4,
 }
 \makeatother
 % --- 
@@ -160,7 +163,7 @@
 \setlength{\parindent}{1.3cm}
 
 % Controle do espaçamento entre um parágrafo e outro:
-\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+\setlength{\parskip}{0.2cm} % tente também \onelineskip
 
 % ---
 % compila o indice
@@ -243,18 +246,13 @@ INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUDESTE DE MINAS GERAI
 
 %\vspace{\onelineskip}
 %
-%FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
-%reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
-%rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
-%cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
-%Zootecnia, Universidade de São Paulo, São Paulo, 2011.
 
 %\begin{table}[htb]
 %\center
 %\footnotesize
 %\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
 %  \hline
-%   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê} % & \textbf{Leia-se}  \\
+%   \textbf{Folha} & \textbf{Linha} & \textbf{Onde se lê} % & \textbf{Leia-se} \\
 %    \hline
 %    1 & 10 & auto-conclavo & autoconclavo\\
 %   \hline
@@ -275,6 +273,8 @@ INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUDESTE DE MINAS GERAI
 %
 % \includepdf{folhadeaprovacao_final.pdf}
 %
+% Lorem ipsolum tal \cite{berrar2019cross}
+% De acordo com \citeonline{berrar2019cross}
 \begin{folhadeaprovacao}
 
   \begin{center}
@@ -291,11 +291,11 @@ INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUDESTE DE MINAS GERAI
     \vspace*{\fill}
    \end{center}
     
-   Trabalho aprovado. \imprimirlocal, 25 de novembro de 2020:
+   Trabalho aprovado. \imprimirlocal, 30 de novembro de 2023:
 
    \assinatura{\textbf{\imprimirorientador} Orientador, IF Sudeste MG - Rio Pomba} 
-   \assinatura{\textbf{PROFESSOR X} \\ IF Sudeste MG - Rio Pomba}
-   \assinatura{\textbf{PROFESSOR Y} \\ IF Sudeste MG - Rio Pomba}
+   \assinatura{\textbf{DSc. Lucas Grassano Lattari} \\ IF Sudeste MG - Rio Pomba}
+   \assinatura{\textbf{DSc. José Rui Castro de Sousa} \\ IF Sudeste MG - Rio Pomba}
       
    \begin{center}
     \vspace*{0.5cm}
@@ -328,7 +328,7 @@ INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUDESTE DE MINAS GERAI
 % ---
 \begin{agradecimentos}
 
-Agradeço...
+Agradeço a todos que, de forma direta ou indireta, contribuíram para a realização deste trabalho, em especial ao meu orientador, pela constante orientação e paciência, e à minha família, pelo incentivo e compreensão ao longo dessa jornada acadêmica.
 
 
 \end{agradecimentos}
@@ -342,7 +342,7 @@ Agradeço...
 	\begin{flushright}
  		\textit{``O impossível\\
  		é só questão de opinião"
- 		\\(Chorão, 1996)}
+ 		\\(Chorão, 2009)}
 	\end{flushright}
 \end{epigrafe}
 % ---
@@ -351,45 +351,19 @@ Agradeço...
 % RESUMOS
 % ---
 
-% resumo em português
 \begin{resumo}
-Notícias sempre foram importantes para a sociedade, e hoje elas estão disponíveis
-tanto no formato tradicional (revistas e jornais) como no meio digital na internet (sites e
-redes sociais). Com o passar do tempo a internet foi se popularizando e se tornando
-uma fonte mais acessível de informações. Neste sentido, as redes sociais ocupam um
-lugar de destaque. Podendo conter vários tipos de notícias, elas nem sempre são uma
-fonte confiável de informação. Notícias falsas, também conhecidas como fake news,
-normalmente são criadas com o objetivo de prejudicar alguma pessoa, grupo, cultura,
-religião ou ideologia. A desinformação causada por uma fake news pode ter
-consequências graves no consumo de medicamentos, por exemplo, podendo acarretar
-graves doenças ou até mesmo a morte. Um dos grandes problemas relacionados à
-fake news é que muitas pessoas (principalmente aquelas com menor grau de
-instrução) não conseguem identificá-las. Por outro lado, esta tarefa pode ser facilitada
-por um computador. Dado que o computador não entende os textos da mesma forma
-que os humanos, os dados devem ser processados por um algoritmo e convertidos em
-um formato apropriado. Visto isso, este trabalho é o desenvolvimento de uma aplicação para a detecção de notícias falsas através do uso da técnica de Processamento de Linguagem Natural. Sendo utilizadas duas base de dados, um compilado com notícias claramente falsas e outra com títulos de notícias de portais com credibilidade na internet. O sistema faz a extração automática das notícias em tempo real e em seguida alimenta sua base de dados para classificar outras notícias diferentes. 
-\noindent 
-
- \vspace{\onelineskip}
+Notícias falsas, conhecidas também como \textit{fake news}, têm se tornado uma ameaça crescente à sociedade contemporânea, exercendo influência negativa sobre milhares de pessoas em todo o mundo, muitas vezes por meio de títulos tendenciosos e chamativos. Embora métodos de análise manual possam ser eficazes em alguns casos, eles enfrentam limitações significativas, como a falta de escalabilidade e o risco de erros humanos. A complexidade e constante evolução das técnicas utilizadas pelos propagadores de notícias falsas exigem abordagens mais sofisticadas, como a aplicação de tecnologias de Inteligência Artificial (IA). Apesar de já existirem diversos trabalhos na literatura atual que fazem uso de diferentes algoritmos de IA e variadas técnicas de pré-processamento, ainda não há estudos abrangentes que determinem o melhor conjunto dessas técnicas. Através da aplicação da tecnologia, diversos trabalhos que analisam a notícia completa obtiveram uma alta acurácia, embora demandem maior processamento e, consequentemente, um tempo de análise mais prolongado. Por outro lado, utilizando apenas o título, que funciona como um resumo da notícia e normalmente é composto por poucas palavras, é possível agilizar esse processo. Nesse contexto, o objetivo deste estudo é estabelecer uma heurística que nos permite analisar o melhor conjunto de técnicas de pré-processamento de texto, combinada com um algoritmo de Aprendizado de Máquina, a fim de detectar \textit{fake news} a partir da análise dos títulos das notícias. Para realizar esse processo, primeiramente, realizou-se a coleta de notícias verdadeiras com o suporte da biblioteca \textit{Tweepy}. Já para a obtenção das notícias falsas, empregou-se a técnica de \textit{web scraping} (raspagem de dados). Posteriormente, aplicamos um ou mais algoritmo de pré-processamento de dados, tais como a aplicação de remoção de \textit{stop words}, remoção de caracteres especiais e a \textit{stemização}. Com os dados pré-processados, aplicamos um algoritmos de aprendizado, como o \textit{Naive Bayes}, \textit{Decision Tree} e \textit{Random Forest}. A eficácia das diferentes combinações foi avaliada por meio da análise individual de um ou mais algoritmo de pré-processamento associado a um algoritmo de Aprendizado de Máquina. Dessa forma, foi possível determinar quais combinações têm a melhor média de acurácia e menor desvio padrão.
     
- \noindent
- \textbf{Palavras-chaves}: Fake News. Inteligência Artificial. 
+\noindent \textbf{Palavras-chaves}: \textit{Fake News}, Aprendizado de Máquina, Processamento de Linguagem Natural, Pré-processamento de Dados, Inteligência Artificial.
 \end{resumo}
 
-% resumo em inglês
 \begin{resumo}[Abstract]
- \begin{otherlanguage*}{english}
- News has always been important for a society, and today it is available both in the traditional format (magazines and newspapers) and digitally on the internet (websites and social networks). As time went by, the internet became more popular and became a more accessible source of information. In this sense, social networks occupy a prominent place. Although they may contain various types of reports, they are not always a reliable source of information. Fake news, also marked as fake news, is usually high with the aim of harming any person, group, culture, religion or ideology. The misinformation caused by a false news can have serious consequences on the consumption of medicines, for example, and can lead to serious illnesses or even death. On the other hand, this task can be facilitated by a computer. Given that the computer does not understand texts in the same way as humans, data must be processed by some algorithm and converted in an appropriate format. Using two databases, one compiled with clearly false news and other headlines from news portals with credibility on the internet. The system automatically extracts news in real time and then feeds its database to classify other different news.
-
- \noindent 
-
-   \vspace{\onelineskip}
- 
-   \noindent 
-   \textbf{Key-words}: Fake News. Artificial intelligence. 
- \end{otherlanguage*}
+\begin{otherlanguage*}{english}
+Fake news has become a growing threat to contemporary society, exerting a negative influence on thousands of people worldwide, often through tendentious and sensational headlines. While manual analysis methods can be effective in some cases, they face significant limitations, such as lack of scalability and the risk of human errors. The complexity and constant evolution of techniques used by disseminators of fake news require more sophisticated approaches, such as the application of Artificial Intelligence (AI) technologies. Despite numerous existing works in the current literature that use different AI algorithms and various preprocessing techniques, there are still no comprehensive studies determining the best combination of these techniques. Through the application of technology, several studies analyzing the entire news have achieved high accuracy, although they require more processing and, consequently, a longer analysis time. On the other hand, by using only the title, which serves as a summary of the news and is usually composed of few words, it is possible to expedite this process. In this context, the objective of this study is to establish a heuristic that allows us to analyze the best set of text preprocessing techniques, combined with a Machine Learning algorithm, to detect fake news through the analysis of news headlines. To carry out this process, the collection of  X news was first performed with the support of the Tweepy library. For obtaining fake news, the web scraping technique was employed. Subsequently, one or more data preprocessing algorithms were applied, such as the removal of stop words, removal of special characters, and stemming. With preprocessed data, machine learning algorithms like Naive Bayes, Decision Tree, and Random Forest were applied. The effectiveness of different combinations was evaluated through the individual analysis of one or more preprocessing algorithms associated with a Machine Learning algorithm. Thus, it was possible to determine which combinations have the best average accuracy and the lowest standard deviation.
+    
+\noindent \textbf{Key-words}: Fake News, Machine Learning, Processing Natural Language, Artificial Intelligence.
+\end{otherlanguage*}
 \end{resumo}
-
 
 % resumo em francês 
 %\begin{resumo}[Résumé]
@@ -437,8 +411,14 @@ um formato apropriado. Visto isso, este trabalho é o desenvolvimento de uma apl
 % ---
 
 \begin{siglas}
-    \item[ACC] Acurácia
     \item[PLN] Processamento de Linguagem Natural
+    \item[IA] Inteligência Artificial
+    \item[AM] Aprendizado de Máquina
+    \item[NB] \textit{Naive Bayes}
+    \item[DT] \textit{Decision Tree}
+    \item[RF] \textit{Random Forest}
+    \item[API] \textit{Application Programming Interface}
+    \item[NLTK] \textit{Natural Language Toolkit}    
 \end{siglas}
 
 % ---
@@ -474,134 +454,339 @@ um formato apropriado. Visto isso, este trabalho é o desenvolvimento de uma apl
 \addcontentsline{toc}{chapter}{\textbf{Introdução}}
 \markright{Introdução}
 \label{chapter:introducao}
-Notícias sempre foram importantes para a sociedade, e hoje elas estão disponíveis tanto no formato tradicional (revistas e jornais) como no meio digital na internet (sites e redes sociais). Com o passar do tempo a internet foi se popularizando e se tornando uma fonte mais acessível de informações. Neste sentido, as redes sociais ocupam um lugar de destaque, e podendo conter vários tipos de notícias elas nem sempre são uma fonte confiável de informação. 
 
-A desinformação causada por uma fake news pode ter consequências graves no consumo de medicamentos, por exemplo, podendo acarretar graves doenças ou até mesmo a morte. Um dos grandes problemas relacionados à fake news é que muitas pessoas (principalmente aquelas com menor grau de instrução) não conseguem identificá-las.
+As notícias sempre tiveram um papel crucial na sociedade, e hoje elas estão disponíveis em
+diversos formatos, incluindo o tradicional, como revistas e jornais, e o meio digital, na internet, por meio de sites e redes sociais. Com o tempo, a internet se popularizou e se tornou uma fonte amplamente acessível de informações. Nesse contexto, as redes sociais ganharam destaque como plataformas de disseminação de notícias. No entanto, é importante ressaltar que nem sempre elas são fontes confiáveis de informação.
 
-As fake news, normalmente são criadas com o objetivo de prejudicar alguma pessoa, grupo, cultura, religião ou ideologia.
+As redes sociais podem abrigar uma variedade de tipos de notícias, mas infelizmente, são usadas para disseminar notícias falsas, também conhecidas como \textit{fake news}. Essas notícias geralmente são criadas com  objetivos de enganar o público ao disseminar informações falsas, visando influenciar opiniões e comportamentos, muitas vezes com intenções políticas, econômicas ou ideológicas. Elas também podem gerar confusão e desinformação, minando a confiança nas fontes de informação confiáveis. É fundamental que as pessoas estejam cientes desse problema e busquem fontes confiáveis de informação para embasarem suas decisões.
 
-Este tipo de notícia é escrito e publicado com a intenção de enganar, a fim de se obter ganhos financeiros ou políticos, muitas vezes com manchetes sensacionalistas, exageradas ou evidentemente falsas para chamar a atenção.
+As \textit{fake news} muitas vezes são impulsionadas principalmente por títulos sensacionalistas, cativantes ou chocantes. Esse tipo de título apelativo tem o poder de atrair a atenção das pessoas, levando-as a clicarem e compartilharem as notícias sem verificar sua veracidade. Esse comportamento amplifica a disseminação dessas notícias e aumenta seu impacto negativo na sociedade.
 
-Dado que o computador não entende os textos da mesma forma que os humanos, os dados devem ser processados por um algoritmo e convertidos em um formato apropriado, visto isso, o objetivo deste trabalho é desenvolver um algoritmo de Inteligência Artificial capaz de detectar se, através do título, determinada notícia é verdadeira ou falsa. Treinando uma base de dados com frases encontradas na internet, previamente identificadas como sendo fake news ou realmente uma notícia verdade, o algoritmo conseguiu identificar com precisão os títulos de notícias.
+É importante destacar que inúmeras pessoas, especialmente aquelas com menor grau de instrução ou menor familiaridade com a mídia digital, enfrentam dificuldades para identificar essas notícias. Isso torna a disseminação dessas informações enganosas ainda mais problemática, uma vez que as pessoas podem inadvertidamente contribuir para a propagação da desinformação. Portanto, é crucial promover meios de facilitar a identificação da veracidade das notícias antes de compartilhá-las, para ajudar a mitigar os efeitos prejudiciais das \textit{fake news} à sociedade.
 
-O Processamento de Linguagem Natural (PLN) é a subárea da Inteligência Artificial (IA) que procura compreender melhor como uma máquina entende a linguagem dos seres humanos.
+A detecção pode ser desafiadora devido à sua crescente sofisticação e disseminação rápida. Muitas vezes, essas notícias são projetadas para se assemelhar a informações reais, tornando difícil diferenciar. Além disso, as redes sociais e a rapidez da disseminação online podem amplificar essas notícias antes que correções ou possíveis verificações adequadas sejam feitas, aumentando ainda mais a dificuldade de identificação. Por outro lado, esta tarefa pode ser facilitada com o uso de tecnologias.
 
+A análise completa de uma notícia por um algoritmo, abrangendo título, texto e imagens, exige maior capacidade de processamento e, consequentemente, um tempo de análise mais prolongado. Isso pode representar um obstáculo em um cenário de notícias em constante evolução, onde a velocidade na disseminação da informação é crucial. Geralmente, o título de uma notícia é composto por poucas palavras e representa a primeira impressão para o leitor. Portanto, a automatização da análise dos títulos pode agilizar o processo de triagem, embora também apresente desafios. Ao analisar apenas o título, é necessário um menor processamento e tempo, mas em contrapartida, a acurácia final também pode ser afetada negativamente.
 
+A Inteligência Artificial, quando aliada a algoritmos de Processamento de Linguagem Natural \cite{chowdhary2020natural} e ao Aprendizado de Máquina \cite{monard2003conceitos}, podem apoiar na identificação de uma notícia possivelmente falsa. Algoritmos de PLN podem ser utilizados para analisar o conteúdo textual das notícias e identificar padrões que possam indicar sua veracidade, como por exemplo o uso de linguagem sensacionalista ou inconsistências lógicas. O Aprendizado de Máquina por sua vez, pode desenvolver modelos que podem classificar automaticamente essas notícias.
 
+O Aprendizado de Máquina pode ter um melhor resultado se a base de dados passar por um pré-processamento de texto. A falta de pré-processamento prejudica a qualidade e a compreensão de dados textuais, resultando em análises imprecisas. O pré-processamento é um conjunto de etapas essenciais que visa aprimorar a qualidade dos dados textuais, tornando-os mais adequados para análise, pesquisa ou outras aplicações. Essas etapas envolvem a manipulação e a limpeza dos textos brutos, permitindo que sejam mais compreensíveis e exploráveis.
 
+As técnicas de pré-processamento podem ser aplicada de forma isolada (uma única técnica) ou combinada (duas ou mais técnicas). Quando combinada, ela pode ser uma abordagem eficaz na análise de dados textuais. Essa abordagem permite a criação de bases de dados eficientes em uma ampla variedade de tarefas de PLN, como classificação de documentos, análise de sentimentos, classificação de \textit{fake news}, entre outras.
 
+A utilização de uma heurística pode desempenhar um papel fundamental na otimização da escolha das combinações ideais de técnicas de pré-processamento de texto e algoritmos de Aprendizado de Máquina para a detecção de \textit{fake news}. Ela pode ajudar na identificação de atalhos e estratégias eficazes, contribuindo não apenas para a precisão da detecção, mas também para a eficiência do processo como um todo. Além disso, pode resultar em uma otimização dos recursos computacionais, reduzindo o tempo de análise, e, consequentemente, tornando o processo de identificação de notícias falsas mais rápida.
 
+Deste modo, o trabalho apresenta uma heurística com o objetivo de determinar a combinação mais eficaz de técnicas de pré-processamento associada a um algoritmo de aprendizado treinado a partir de notícias falsas e verdadeiras, visando também a identificação de \textit{fake news} com um menor tempo de análise. Essas técnicas incluem a remoção de \textit{stop words} (palavras comuns sem grande relevância contextual), a \textit{stemização} (processo de redução de palavras à sua forma base) e a eliminação de caracteres especiais. Essas abordagens foram testadas individualmente e em grupos antes da aplicação dos algoritmos, e em seguida aplicadas aos algoritmos de Aprendizado de Máquina \textit{Naive Bayes}, \textit{Decision Tree} e \textit{Random Forest}, visando a detecção da veracidade do título da notícia.
 
+Para a obtenção desses títulos destinados a alimentar a base de treinamento e teste, empregou-se o método de \textit{web scraping} \cite{glez2014web} em títulos de notícias previamente identificadas como falsas. Paralelamente, foram coletados, em quantidade equivalente, títulos de notícias verdadeiras utilizando a biblioteca \textit{Tweepy} na linguagem de programação \textit{Python}. As notícias falsas foram obtidas do E-Farsas\footnote{O \textbf{E-farsas} é um site criado em 1 de abril de 2002, pelo analista de sistemas Gilmar Lopes. Tem como objetivo desmentir boatos que circulam na internet. Disponível em: \nolinkurl{https://www.e-farsas.com/}}, que é um site que desempenha um papel fundamental na validação interna da veracidade das informações. Já as notícias verdadeiras foram extraídas do renomado veículo de comunicação G1\footnote{O \textbf{g1} é um portal de notícias brasileiro mantido pelo Grupo Globo e sob orientação da Central Globo de Jornalismo. Disponível em: \nolinkurl{https://twitter.com/g1}}. Esse processo de seleção das notícias é essencial para garantir a qualidade e a credibilidade das informações fornecidas para o algoritmo.
 
+Para o algoritmo compreender os dados, é necessário converter o texto em valores numéricos, e para isso foi utilizado o \textit{CountVectorizer}. Segundo \citeonline{casimiro2020proposta}, \textit{CountVectorizer} é uma técnica que analisa a frequência de ocorrência de palavras em um conjunto de dados de texto. Ele trabalha criando uma matriz de contagem de palavras, onde cada linha representa um documento de texto e cada coluna representa uma palavra do vocabulário. Os valores nas células da matriz indicam quantas vezes cada palavra ocorre em cada documento. O \textit{CountVectorizer} é uma etapa crucial no pré-processamento de dados de texto, tornando os textos acessíveis e prontos para análise e modelagem.
 
-
-
-
-
+O trabalho está organizado como se segue. No Capítulo 2 é realizada a fundamentação de toda a base teórica para entender o impacto de uma \textit{fake news}. Neste capítulo também é explicado a importância do pré-processamento do texto e como ela interage com a classificação automática. No Capítulo 3 é realizado um estudo sobre outros artigos que abordam o assunto de \textit{fake news}, IA e a associação de ambos. No Capítulo 4 são discutidos os materiais utilizados e a metodologia empregada no desenvolvimento do algoritmo. No Capítulo 5 é explicado passo-a-passo como foram realizados os experimentos do algoritmo classificação e os resultados com os algoritmos de pré-processamento escolhidos. Por fim, no Capítulo 6 é realizada a conclusão do trabalho e discussões acerca de trabalhos futuros.
 % ---------------------------------------------------------------------------------------------
 % Fundamentação Teórica
 % ---------------------------------------------------------------------------------------------
 \setcounter{chapter}{1}
 \chapter{Fundamentação Teórica}
 \label{chapter:fundamentacaoTeorica}
+Neste capítulo são abordadas ferramentas, técnicas e conceitos necessários para o melhor entendimento do presente trabalho. Serão apresentados os conceitos de uma \textit{fake news}, o impacto que elas causam na sociedade e a importância do título de uma notícia. Após isso, é descrito quais as técnicas utilizadas na extração dos títulos das notícias. Também serão discutidos tópicos sobre o pré-processamento dos textos e dos algoritmos de Aprendizado de Máquina definidos.
+
+\section{\textbf{\textit{Fake News}}}
+No contexto tecnológico atual, as \textit{fake news} representam uma ameaça em constante crescimento, impulsionada pela popularização da internet e das mídias sociais. Segundo \citeonline{costa2020classificador}, grupos com agendas políticas ou comerciais aproveitam-se dessas redes sociais para criar e espalhar informações falsas, aproveitando-se da natureza dinâmica e viral da tecnologia.
+
+Os títulos das notícias desempenham um papel crítico na disseminação de informações, pois frequentemente representam a primeira impressão que os leitores têm sobre o conteúdo da notícia. Eles são projetados para atrair a atenção do público, muitas vezes por meio de apelos sensacionalistas e cativantes. Além disso, a escassez de tempo e a sobrecarga de informações na era digital podem levar os leitores a tomar decisões rápidas e superficiais. Como resultado, muitas notícias são compartilhadas sem que a veracidade das mesmas seja previamente checadas.
+
+No cenário brasileiro, o Projeto de Lei 2630/2020 \cite{PL26302020} busca conter a disseminação de informações falsas nas plataformas digitais, visando proteger a ordem pública e outros aspectos críticos. Essa legislação propõe diretrizes para o uso responsável de redes sociais e serviços de mensagem, equilibrando a liberdade de expressão com a necessidade de combater a desinformação online. No entanto, sua eficácia e aplicação plena geram debates sobre a complexidade de regulação nesse ambiente.
+
+É amplamente reconhecida a importância de adotar abordagens mais eficazes e colaborativas para mitigar os efeitos negativos das \textit{fake news}, protegendo assim a sociedade de suas consequências prejudiciais. É importante que as pessoas estejam cientes das \textit{fake news} e aprendam a avaliar criticamente as informações que encontram online para garantir que estejam recebendo informações precisas e confiáveis. A tecnologia pode apoiar nesse combate com a identificação de uma notícia falsa e evitando o compartilhamento imediato.
+
+\section{\textbf{Processamento de Linguagem Natural}}
+Processamento de Linguagem Natural (PLN) é um campo da inteligência artificial que se dedica ao desenvolvimento de algoritmos e modelos computacionais capazes de compreender, interpretar e gerar linguagem humana de maneira eficiente. Esse campo tem a finalidade de analisar e gerar a língua natural para os humanos, para que, eventualmente, seja possível nos dirigirmos a um computador da mesma forma que nos dirigimos a uma pessoa \cite{pinto2015processamento}.
+
+De acordo com \citeonline{de2020processamento}, PLN pode ser dividido em cinco estágios principais de análise. O primeiro estágio, a \textit{tokenização}, envolve a divisão do texto em unidades menores, como palavras. Em seguida, a análise léxica relaciona as formas das palavras às suas formas primitivas no dicionário. A análise sintática concentra-se nas relações entre as palavras em uma frase e como as frases se combinam em sentenças. A análise semântica busca extrair o significado das palavras, expressões e sentenças. Por último, a análise pragmática visa compreender o texto, observando referências pronominais e a coesão das frases adjacentes. Juntos, esses estágios permitem a extração computacional do significado pretendido pelo autor a partir de um documento de texto.
+
+Segundo \citeonline{vieira2010processamento}, o PLN é desafiador devido à ambiguidade natural da linguagem. Essa ambiguidade estabelece uma clara distinção entre o PLN e a programação de computadores, onde a linguagem é formalmente definida para evitar ambiguidades.
+
+Em relação às \textit{fake news}, o PLN pode ser usado para identificar esse problema, analisando as informações das notícias. Os algoritmos podem ser treinados com grandes quantidades de dados previamente validados e, em seguida, usados para avaliar novas informações. Por exemplo, podem ser usados para identificar palavras ou frases que são comumente associadas a notícias falsas e detectar padrões na disseminação das \textit{fake news}.
+
+\section{\textbf{Aprendizado de Máquina}}
+O Aprendizado de Máquina (AM) concentra-se em desenvolver técnicas computacionais para facilitar o aprendizado, além de construir sistemas capazes de adquirir aprendizado de maneira automática. Um sistema de aprendizado se refere a um programa de computador que toma decisões com base em experiências acumuladas ao resolver com sucesso problemas anteriores \cite{monard2003conceitos}.
+
+O campo de AM é considerada um ramo da área de IA, sendo uma área especializada no estudo e construção de sistemas que sejam capazes de aprender de forma automatizada a partir de dados \cite{brink2016real}. Em vez de serem explicitamente programadas para realizar tarefas específicas, os algoritmos de AM são treinados usando dados para reconhecer padrões e fazer previsões ou tomar decisões com base nesses padrões. Essa abordagem permite que os algoritmos melhorem sua precisão à medida que são expostas a mais dados, tornando-se especialmente úteis em tarefas complexas e com grandes conjuntos de dados.
+
+De acordo com \citeonline{zhou2021machine}, existem três principais tipos de Aprendizado de Máquina: o Aprendizado Supervisionado, o Aprendizado Não Supervisionado e o Aprendizado por Reforço. 
+
+1. \textbf{Aprendizado Supervisionado:} No Aprendizado Supervisionado, o modelo é treinado com um conjunto de dados que inclui exemplos de entrada e as correspondentes saídas desejadas. O objetivo é aprender a mapear as entradas para as saídas de maneira que o modelo possa fazer previsões ou classificações precisas em novos dados. É amplamente utilizado em problemas de classificação e regressão, onde o modelo pode prever categorias ou valores numéricos com base nos dados de treinamento.
+
+2. \textbf{Aprendizado Não Supervisionado:} No Aprendizado Não Supervisionado, o modelo é treinado em um conjunto de dados que não contém saídas rotuladas. O objetivo principal é descobrir padrões ou estruturas nos dados, como grupos de dados semelhantes, sem orientação explícita. Isso é comumente usado em tarefas de clusterização, onde o modelo agrupa dados em \textit{clusters} com base em semelhanças.
+
+3. \textbf{Aprendizado por Reforço:} O Aprendizado por Reforço envolve um agente que interage com um ambiente, toma ações e recebe recompensas com base nas ações tomadas. O agente aprende a tomar ações que maximizam a recompensa ao longo do tempo. Esse tipo de aprendizado é frequentemente aplicado em áreas como robótica e jogos, onde o agente aprende a otimizar seu comportamento com base nas recompensas obtidas.
+
+Cada um desses tipos de Aprendizado de Máquina possui suas próprias aplicações e desafios, e a escolha do tipo depende do problema específico a ser resolvido e da disponibilidade dos dados de treinamento. No presente estudo, a detecção de notícias falsas envolve a aplicação de algoritmos de aprendizado supervisionado para classificar os títulos das notícias como verdadeiros ou falsos com base nos rótulos previamente atribuídos a esses títulos. Isso permite que o modelo seja treinado para identificar padrões que indiquem a veracidade das notícias.
+
+\subsection{\textbf{\textit{Naive Bayes}}}
+O \textit{Naive Bayes} \cite{webb2010naive} é um algoritmo de classificação probabilístico fundamentado no Teorema de \textit{Bayes} que assume independência condicional entre os recursos utilizados para a classificação. Essa técnica é particularmente aplicável em problemas de categorização. O método baseia-se na avaliação da probabilidade de um determinado exemplo pertencer a uma classe específica, considerando as probabilidades condicionais dos atributos. 
+
+A fórmula de \textit{Bayes} desempenha um papel central no funcionamento do classificador \textit{Naive Bayes}, permitindo que ele atualize suas estimativas de probabilidade à medida que novos dados são introduzidos. Essa capacidade de adaptação contínua é uma das principais vantagens do \textit{Naive Bayes}, tornando-o especialmente eficaz em tarefas de classificação. Sua simplicidade e eficiência computacional o tornam uma escolha popular em uma variedade de aplicações práticas.
+
+A Fórmula de \textit{Bayes} é expressa como \(P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}\), onde:
+\begin{itemize}
+    \item \(P(A|B)\) é a probabilidade de \(A\) dado \(B\).
+    \item \(P(B|A)\) é a probabilidade de \(B\) dado \(A\).
+    \item \(P(A)\) e \(P(B)\) são as probabilidades marginais de \(A\) e \(B\), respectivamente.
+\end{itemize}
+
+Essa fórmula permite atualizar nossas crenças ou probabilidades com base em novas evidências. Ela é particularmente útil quando queremos avaliar a probabilidade de uma hipótese (\(A\)) ser verdadeira, dadas as evidências (\(B\)) que temos. A Fórmula de \textit{Bayes} é uma ferramenta poderosa para tomar decisões informadas em cenários onde a incerteza desempenha um papel significativo. \citeonline{durgiewicz2021detecccao} refere ao \textit{Naive Bayes} como um modelo simples de classificação, porém proporciona bons resultados mesmo quando comparados aos obtidos com classificadores mais complexos. 
+
+\subsection{\textbf{\textit{Decision Tree}}}
+\citeonline{charbuty2021classification} descreve a Árvore de Decisão como um método de Aprendizado de Máquina que constrói uma estrutura em forma de árvore para tomar decisões com base em condições e características. O algoritmo começa com um conjunto de dados e analisa as características para encontrar o atributo que melhor separa os dados em dois grupos. Em seguida, o algoritmo cria um nó para esse atributo e repete o processo para cada grupo. O processo continua até que todos os dados estejam separados em nós individuais. 
+
+As Árvores de Decisão são conhecidas por sua capacidade de fornecer informações valiosas sobre como as decisões são tomadas em um determinado contexto. À medida que a árvore cresce e se ramifica, é possível visualizar facilmente quais características são mais importantes na classificação ou previsão, tornando-as uma ferramenta valiosa para análise de dados e tomada de decisões em ambientes empresariais e científicos.
+
+\subsection{\textbf{\textit{Random Forest}}}
+Segundo \citeonline{breiman2001random}, \textit{Random Forest} é um conjunto de árvores de decisão que trabalham de forma colaborativa para aprimorar a precisão e robustez da classificação ou regressão. Cada árvore individual é treinada em uma amostra aleatória dos dados e a combinação de suas respostas contribui para resultados mais confiáveis e generalizáveis.
+
+Uma importante característica do algoritmo é sua capacidade de lidar com dados ausentes e valores atípicos. As árvores individuais podem ser construídas sem a necessidade de imputação de valores ausentes, o que economiza tempo e minimiza o risco de introduzir viés nos dados. O \textit{Random Forest} pode ser uma escolha confiável em cenários onde a qualidade dos dados pode ser variável e sujeita a perturbações. Sua flexibilidade, eficácia e capacidade de lidar com desafios comuns tornam-o um algoritmo essencial em aplicações de Aprendizado de Máquina e análise de dados.
+
+\section{\textbf{Algoritmos de Pré-processamento}}
+O pré-processamento de dados é uma etapa fundamental no fluxo de análise de dados, envolvendo a limpeza, transformação e organização dos dados brutos em um formato mais adequado para análise ou modelagem. O objetivo do pré-processamento é melhorar a qualidade dos dados, tornando-os prontos para serem utilizados em algoritmos de Aprendizado de Máquina, mineração de dados e outras análises estatísticas, a fim de obter resultados mais confiáveis e significativos.
+
+\subsection{\textbf{Remoção de \textit{Stop Words}}}
+A remoção de \textit{stop words} é um procedimento de pré-processamento textual que envolve a exclusão de palavras comuns que não contribuem significativamente para a compreensão do contexto. Essas palavras, como artigos e preposições, são filtradas para melhorar a eficácia da análise de texto. De acordo com \citeonline{braga2009avaliaccao}, a eliminação de \textit{stop words} pode ser realizada em diferentes fases, seja antes ou após a implementação de métodos estatísticos e também durante o processo de \textit{tokenização} dos textos. 
+
+No contexto de detecção de \textit{fake news}, a remoção de \textit{stop words} desempenha um papel importante. Ao eliminar palavras comuns, o algoritmo de detecção pode se concentrar nas palavras-chave e em padrões de linguagem mais distintos que são mais indicativos de notícias falsas. Isso pode ajudar a melhorar a precisão do modelo, pois as \textit{stop words} não trazem informações relevantes para a identificação de conteúdo enganoso. Portanto, a remoção de dessas palavras é uma estratégia valiosa para aprimorar os sistemas de detecção de \textit{fake news}, permitindo que eles identifiquem com maior precisão as características específicas das notícias falsas, como sensacionalismo, informações contraditórias e viés tendencioso, entre outros.
+
+\subsection{\textbf{Remoção de Caracteres Especiais}}
+A remoção de caracteres especiais é uma etapa importante de pré-processamento que visa a remoção de caracteres não alfa numéricos do texto, incluindo símbolos como \textit{hashtags}, arrobas, cifrões e outros caracteres especiais que não sejam letras ou números \cite{brandao2023impacto}, mantendo apenas os elementos essenciais para a análise. Com isso, pode ser útil para melhorar a eficácia de algoritmos de PLN e outras tarefas de processamento de texto. Segue alguns exemplos abaixo:
+
+1. \textbf{Acentos:} Em alguns casos, é vantajoso remover acentos das letras, como transformar "ação" em \textit{acao} para normalizar o texto.
+
+2. \textbf{Símbolos matemáticos:} Caracteres como +, -, *, /, = podem ser removidos se não forem relevantes para a análise do texto.
+
+3. \textbf{Citações:} Aspas duplas ou simples que envolvem palavras ou frases podem ser removidas, por exemplo: "Isso é um exemplo" se tornaria \textit{Isso é um exemplo}.
+
+4. \textbf{Caracteres de formatação:} Isso inclui caracteres de quebra de linha, tabulação e outros caracteres de controle que não contribuem para a análise de texto.
+
+5. \textbf{\textit{Emojis}:} Se a análise de sentimentos não for o foco, os \textit{emojis} podem ser removidos.
+
+6. \textbf{Caracteres especiais de linguagens estrangeiras:} Se a análise for feita em uma única língua, os caracteres de outras línguas podem ser removidos, como os caracteres cirílicos em um texto em inglês.
+
+7. \textbf{Sinais de pontuação:} Vírgulas, pontos, pontos de exclamação e pontos de interrogação podem ser removidos ou substituídos por espaços em branco, dependendo da necessidade.
+
+\subsection{\textbf{\textit{Stemização}}}
+A \textit{stemização}, também conhecida como \textit{stemming} em inglês, é um processo linguístico que envolve a redução de palavras à sua forma base ou raiz, removendo afixos como sufixos e prefixos. Isso ajuda a tratar variações de uma mesma palavra, como tempos verbais diferentes, como uma única entidade. Por exemplo a palavra "correndo" vira \textit{corr}, mas podendo variar de acordo com o algoritmo aplicado.
+
+Em resumo, os algoritmos de \textit{stemming} envolvem a normalização linguística, em que as diferentes formas de uma palavra são simplificadas para uma forma básica chamada "stem". O resultado da aplicação de algoritmos de \textit{stemming} é a eliminação de afixos (prefixos ou sufixos) de uma palavra, ou até mesmo a conversão de um verbo para sua forma infinitiva \cite{lovins1968development}.
+
+\section{\textit{\textbf{Web Scraping}}}
+O \textit{web scraping} é a prática de coleta de dados por meio do acesso direto a páginas \textit{web} que não envolve a interação de um programa com uma \textit{API} (Interface de Programação de Aplicação, em português) e que não é conduzida por um usuário humano utilizando um navegador \textit{web} \cite{glez2014web}. A técnica analisa o código \textit{HTML} das páginas \textit{web} e identifica os elementos de interesse, como textos, imagens ou \textit{links}, para posterior uso em análises.
+
+Essa técnica desempenha um papel essencial em uma variedade de campos, fornecendo acesso a dados que, de outra forma, seriam difíceis ou impossíveis de se obter manualmente. Empresas utilizam o \textit{web scraping} para coletar informações competitivas, instituições de pesquisa o utilizam para análises de tendências e jornalistas para investigações. No entanto, é importante respeitar os termos de uso dos sites e garantir a ética no processo de extração de dados, para evitar problemas legais ou éticos no uso dessa técnica.
+
+\subsection{\textbf{\textit{Beautiful Soup}}}
+\textit{Beautiful Soup} \cite{richardson2007beautiful} é uma biblioteca  \textit{Python} para extrair dados de arquivos \textit{HTML} e \textit{XML}. Essa biblioteca simplifica significativamente a análise de páginas da \textit{web}, tornando mais eficiente o acesso e a manipulação de informações contidas em documentos desse formato. Com ele, é possível buscar elementos específicos em uma página \textit{web}, extrair dados relevantes, como texto,  \textit{links} ou atributos, e navegar pela estrutura do documento de maneira simplificada.
+
+Essa versatilidade faz dessa biblioteca uma ferramenta essencial em tarefas de \textit{web scraping}, mineração e análise de dados. Ao permitir que os desenvolvedores acessem e manipulem informações contidas em documentos \textit{HTML} com facilidade, o \textit{Beautiful Soup} contribui significativamente para projetos que envolvem a coleta de informações a partir de sites e páginas da internet. Com essa biblioteca, a tarefa de extrair dados relevantes de páginas \textit{web} torna-se mais eficaz e acessível, facilitando a obtenção de informações valiosas para análises, pesquisas e automação de tarefas.
+
+\section{\textbf{\textit{Tweepy}}}
+\textit{Tweepy} \cite{roesslein2009tweepy} é uma popular biblioteca \textit{Python} que simplifica a interação com a \textit{API} do \textit{X} (também conhecido popularmente como \textit{Twitter}), fornecendo métodos e classes convenientes para autenticação, consulta e manipulação de dados. Ela permite aos desenvolvedores acessar informações de usuários, seus \textit{tweets}, seguidores, entre outros, tornando-a uma escolha comum para tarefas de mineração de dados e análise de redes sociais. Além disso, o \textit{Tweepy} é valioso para a criação de \textit{bots} e automação de tarefas relacionadas ao \textit{Twitter}. Ao fornecer métodos simples para interagir com a \textit{API}, os desenvolvedores podem implementar respostas automáticas, monitoramento de atividades específicas e no contexto atual, extrair \textit{tweets} (postagens) de um determinado usuário.
+
+\section{\textit{\textbf{Natural Language Toolkit}}}
+O \textit{NLTK} é uma biblioteca em \textit{Python} escrita para a construção de \textit{softwares} que visam trabalhar com linguagem humana, sendo hoje uma das ferramentas para este fim mais utilizada, principalmente nos meios acadêmicos \cite{weiand2018analise}. Pode ser utilizado para tarefas como \textit{tokenização}, \textit{stemming}, \textit{lematização} e análise de sentimentos. Essa biblioteca destaca-se pela sua extensa coleção de recursos léxicos, fornecendo um amplo conjunto de dados textuais e vocabulários que podem ser empregados em análises linguísticas. A biblioteca também oferece módulos específicos para a realização de tarefas mais avançadas, como análise de frequência de palavras, construção de modelos de linguagem probabilísticos e até mesmo a implementação de algoritmos de Aprendizado de Máquina para tarefas complexas de PLN. Sua versatilidade e documentação abrangente fazem do NLTK uma ferramenta essencial para aqueles que buscam explorar e desenvolver aplicações no campo da linguagem humana.
+
+\section{\textit{\textbf{CountVectorizer}}}
+De acordo com \citeonline{vijayaraghavan2020fake}, o \textit{CountVectorizer} oferece uma maneira simples de \textit{tokenizar}, ou seja, dividir um texto em unidades significativas. Ele opera criando uma matriz de contagem de palavras, onde cada linha representa um documento de texto e cada coluna representa uma palavra do vocabulário. Os valores nas células da matriz indicam quantas vezes cada palavra ocorre em cada documento. Essa abordagem permite que algoritmos de Aprendizado de Máquina trabalhem com dados textuais, transformando o texto em recursos numéricos, tornando possível a aplicação de técnicas de classificação, clusterização e análise de texto em geral. O \textit{CountVectorizer} é uma etapa crucial no pré-processamento de dados de texto, tornando os textos acessíveis e prontos para análise e modelagem.
+Na prática, ele realiza as seguintes etapas:
+\begin{enumerate}
+    \item \textbf{Tokenização}: Divide cada documento em palavras (ou tokens).    
+    \item \textbf{Construção do Vocabulário}: Cria um vocabulário único de todas as palavras únicas nos documentos.    
+    \item \textbf{Contagem de Ocorrências}: Para cada documento, conta quantas vezes cada palavra do vocabulário aparece no documento.
+\end{enumerate}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\section{\textit{\textbf{Cross-validation}}}
+\citeonline{berrar2019cross} refere-se a validação cruzada como um método de reamostragem de dados para avaliar a capacidade de generalização de modelos preditivos e prevenir o \textit{overfitting}. O \textit{overfitting} ocorre quando um modelo se ajusta excessivamente aos dados de treinamento, capturando ruídos e detalhes insignificantes em vez de aprender a generalizar para novos dados. Esse fenômeno prejudica a capacidade do modelo de lidar com dados não vistos, comprometendo sua utilidade em aplicações do mundo real. A principal ideia por trás da validação cruzada é dividir o conjunto de dados em subconjuntos, treinar o modelo em parte dos dados e avaliá-lo em outra, repetindo esse processo várias vezes. Isso ajuda a detectar problemas de sobreajuste e subajuste, fornecendo uma estimativa mais confiável do desempenho do modelo. 
 
 % ---------------------------------------------------------------------------------------------
 % Revisão Bibliográfica
 % ---------------------------------------------------------------------------------------------
 \chapter{Trabalhos Relacionados}
 \label{chapter:trabalhosrelacionados}
+Neste capítulo, abordaremos trabalhos previamente conduzidos que estão relacionados ao tema proposto. Esses trabalhos serviram como fundamentos para as pesquisas realizadas, contribuindo significativamente para uma compreensão aprofundada de vários conceitos e práticas dentro da área. Eles desempenharam um papel essencial na orientação de como lidar com as especificidades da base de dados utilizada, abrangendo aspectos como pré-processamento, extração de recursos e técnicas de PLN.
 
+O trabalho de \citeonline{costa2020classificador} abordou o impacto social das \textit{fake news}, destacando a crescente pesquisa e interesse na detecção e categorização dessas notícias. Utilizando métodos de Aprendizado de Máquina, especificamente a técnica de classificação do classificador \textit{PassiveAgressiveClassifier} em conjunto com PLN, o objetivo foi classificar notícias como falsas ou verdadeiras. Quatro conjuntos de dados foram empregados, seguindo uma divisão de treino (70\%) e teste (30\%), sendo tratados com \textit{TfidfVectorizer} e submetidos ao classificador para análise de métricas como \textit{accuracy}, \textit{precision} e \textit{recall}. Todos os conjuntos alcançaram taxas superiores a 78\%, consideradas ótimas, com destaque para um determinado \textit{dataset}, que obteve uma taxa de 99\%. Esses resultados evidenciam o potencial do classificador e do PLN como alternativas eficazes na detecção de notícias falsas.
 
+\citeonline{de2020processamento} apresenta pesquisas e estudos que abordam a detecção de notícias falsas e a disseminação dessas informações enganosas, considerando abordagens que envolvem a utilização de métodos de PLN e algoritmos de Aprendizado de Máquina. Esses estudos estabeleceram uma base sólida para o presente trabalho, que busca contribuir para a compreensão e enfrentamento das \textit{fake news}, reconhecendo a importância de abordagens abrangentes que considerem não apenas o conteúdo das notícias, mas também o contexto de sua disseminação nas redes sociais e outras plataformas online.
 
+\citeonline{sakurai2019processamento} estuda técnicas de PLN e Aprendizado de Máquina. O trabalho utiliza uma base de dados composta por 3600 notícias, sendo 1800 verdadeiras e 1800 falsas, e foram extraídas 20 características de \textit{Part-of-Speech} e aplicadas em três diferentes algoritmos de Aprendizado de Máquina, o \textit{SVM}, \textit{Adaboost} e Rede Neural. O objetivo de \citeonline{sakurai2019processamento} é avaliar o desempenho desses algoritmos e correlacioná-los com o padrão de escrita presente nas notícias, e contribuiu bastante para o estudo atual.
 
-
-
-
-
-
-
-
-
+O estudo atual apresenta uma abordagem distinta em relação aos estudos existentes sobre detecção de \textit{fake news}. Enquanto \citeonline{costa2020classificador} focou na aplicação do \textit{PassiveAgressiveClassifier} em conjunto com Processamento de Linguagem Natural (PLN) e \citeonline{de2020processamento} destacou a importância de abordagens abrangentes que considera o contexto de disseminação das notícias nas redes sociais, este trabalho se destaca por sua ênfase na busca por uma heurística específica para determinar o melhor conjunto de técnicas de pré-processamento de texto. A análise individual das combinações de algoritmos de pré-processamento e Aprendizado de Máquina, realizada de maneira sistemática, visa identificar as combinações que proporcionam a melhor média de acurácia e menor desvio padrão na detecção de \textit{fake news}. Dessa forma, este estudo contribui para o campo ao oferecer uma perspectiva mais focalizada na otimização das técnicas utilizadas, proporcionando uma base sólida para aprimoramentos futuros na detecção eficaz de notícias falsas.
 % ---------------------------------------------------------------------------------------------
 % Metodologia
 % ---------------------------------------------------------------------------------------------
 \chapter{Materiais e Métodos}
 \label{chapter:materiaisemetodos}
+O presente estudo adota uma abordagem de pesquisa experimental exploratória devido à necessidade de testar e validar diferentes combinações de técnicas de pré-processamento de texto e algoritmos de Aprendizado de Máquina. Utilizando a técnica de coleta de dados para análise de conteúdo, foram coletadas amostras de notícias verdadeiras e notícias falsas, a pesquisa aplicou diversas estratégias de pré-processamento. Quanto à técnica de análise de dados, a pesquisa empregou uma abordagem quantitativa ao utilizar diferentes algoritmos de aprendizado. Ao realizar análises estatísticas, a pesquisa busca não apenas teorizar, mas determinar as combinações mais eficazes para a detecção de \textit{fake news}, oferecendo uma base sólida para conclusões e avanços no campo da IA aplicada à verificação de informações.
 
+Neste capítulo são detalhados os recursos e abordagens utilizados para conduzir a pesquisa. Nesta etapa, serão apresentadas as ferramentas, plataformas e estratégias empregadas para coletar, processar e analisar os dados. Essa seção desempenha um papel fundamental na compreensão da metodologia adotada, fornecendo a base para a validação dos resultados e a replicação do estudo.
 
+\section{\textbf{Desenvolvimento}}
+No desenvolvimento deste trabalho, foram utilizadas as funcionalidades e recursos oferecidos pelo \textit{Google Colab}\footnote{O \textit{Google Colab} é um ambiente de notebooks \textit{Jupyter} que não requer configuração e é executado na nuvem do \textit{Google}. Disponível em: \nolinkurl{https://colab.research.google.com/}}. Desde a extração dos títulos das notícias até o pré-processamento dos dados e a análise final, a plataforma desempenhou um papel crucial, proporcionando uma infraestrutura eficiente e acessível para a execução de todas as etapas do projeto. Os scripts foram desenvolvidos em \textit{Python}, e contaram com o suporte de bibliotecas como o \textit{NLTK}, para o pré-processamento dos dados e \textit{Scikit-learn}\footnote{A \textit{scikit-learn} é uma biblioteca de aprendizado de máquina de código aberto para \textit{Python}.  Disponível em: \nolinkurl{https://scikit-learn.org/}} para classificação, regressão, agrupamento e outras tarefas comuns em aprendizado supervisionado.
 
+\section{\textbf{Base de Dados}}
+Para a realização desta pesquisa, foi essencial conduzir a coleta de dados visando adquirir um conjunto representativo de títulos de notícias falsas e verdadeiras. Nesse sentido, foram selecionadas fontes de dados específicas, resultando na obtenção de 300 títulos de notícias falsas e 300 títulos de notícias verdadeiras. Desse total, 150 notícias verdadeiras e 150 notícias falsas foram alocadas igualmente em duas conjuntos distintos: um composto pela base de teste e outro pela base de treinamento.
 
+A coleta dos títulos de notícias falsas envolveu um processo de \textit{web scraping} utilizando a biblioteca \textit{Beautiful Soup}, que foi aplicado ao site E-farsas. Foram selecionadas somente os títulos de notícias de categorias previamente verificadas como falsa pelo próprio site. Com isso temos as notícias falsas para a base de dados.
 
+Os títulos de notícias verdadeiras foram extraídas do \textit{Twitter} do G1, utilizando da biblioteca \textit{Tweepy}. Os títulos foram consideradas como sendo verdade na base de dados, pois é um portal relevante e bem conhecido na internet. Por fim, juntamos essas notícias verdadeiras com as falsas, ambas já marcadas a sua veracidade e formamos a base de dados.
 
+\section{\textbf{Arquitetura}}
+Na etapa de vetorização dos dados de treinamento, empregou-se a técnica do \textit{CountVectorizer}, transformando textos em representações numéricas adequadas para o treinamento dos modelos de classificação. O \textit{CountVectorizer} permitiu a criação de uma matriz de contagem de palavras, onde cada coluna representa uma palavra única presente nos títulos das notícias e cada linha corresponde a uma instância de dados.
 
+A técnica de validação cruzada foi realizada com 5 \textit{folds} (partições em que o conjunto de dados é dividido durante o processo de treinamento e avaliação). A escolha de \textit{k} é um equilíbrio entre variância e bias (tendência de um modelo em fazer previsões sistemáticas incorretas) na estimativa do desempenho do modelo. Um valor baixo de \textit{k} pode levar a uma estimativa instável e com alta variância, enquanto um valor muito alto de \textit{k} pode resultar em uma estimativa com bias maior, pois cada conjunto de treinamento é pequeno. O valor de \textit{k}=5 é uma escolha comum e frequentemente recomendada, pois fornece uma boa combinação de estabilidade na estimativa de desempenho do modelo e eficiência computacional.
 
+\section{\textbf{Pré-processamento}}
+O pré-processamento consistiu em diversas etapas, incluindo a remoção de \textit{stop words}. Adicionalmente, empregou-se a técnica de \textit{stemização} . A eliminação de caracteres especiais também foi aplicada, visando garantir a qualidade e consistência dos dados. Essas técnicas individuais ou combinadas desempenharam um papel fundamental na transformação dos títulos das notícias para posterior análise.
 
+O código de implementação do experimento foi adaptado para realizar múltiplas iterações de treinamento e avaliação, executando cada algoritmo de aprendizado 100 vezes. Cada execução do algoritmo de aprendizado foi acompanhada por um conjunto específico de combinações de pré-processamento de dados, conforme a Tabela \ref{tab:conjuntosPreProcessamento}. Essa abordagem permitiu a obtenção de uma avaliação do desempenho de cada classificador com várias combinações de pré-processamento. Como saída, tivemos a média da acurácia e o desvio padrão de cada execução.
 
-
-
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cccc}
+        \toprule
+        \textbf{Conjunto} & \textbf{\textit{Stemização}} & \textbf{Rem. \textit{Stop Words}} & \textbf{Rem. Caracteres Especiais} \\
+        \midrule
+        C1 & \textit{false} & \textit{false} & \textit{false} \\
+        C2 & \textit{false} & \textit{false} & \textit{true} \\
+        C3 & \textit{false} & \textit{true} & \textit{false} \\
+        C4 & \textit{true} & \textit{false} & \textit{false} \\
+        C5 & \textit{true} & \textit{true} & \textit{false} \\
+        C6 & \textit{false} & \textit{true} & \textit{true} \\
+        C7 & \textit{true} & \textit{false} & \textit{true} \\
+        C8 & \textit{true} & \textit{true} & \textit{true} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Conjuntos de pré-processamento}
+    \label{tab:conjuntosPreProcessamento}
+\end{table}
 
 
 % ---------------------------------------------------------------------------------------------
 % Experimentos
 % ---------------------------------------------------------------------------------------------
-\chapter{Experimentos e Resultados}
+\chapter{Experimentos e Avaliação de Resultados}
 \label{chapter:experimentosEResultados}
+A avaliação da eficácia do modelo ocorre por meio da análise individual de cada resultado, considerando diferentes combinações de pré-processamento de texto e algoritmos de aprendizado de máquina. As métricas principais utilizadas para essa avaliação são a média de acurácia e o desvio padrão.
 
+A média de acurácia proporciona uma medida central que reflete o desempenho médio do modelo ao longo das várias execuções da validação cruzada. Essa métrica é calculada somando as acurácias obtidas e dividindo pelo número total. Uma média mais alta indica um melhor desempenho geral do modelo.
 
+O desvio padrão é uma medida de dispersão que indica o quanto as acurácias individuais se desviam da média. Um desvio padrão menor sugere uma consistência maior nas predições do modelo. Isso é útil para entender a estabilidade e confiabilidade do modelo.
 
+Ao analisar essas métricas para cada combinação de combinações, podemos obter uma compreensão abrangente do desempenho de cada modelo. Uma média de acurácia mais alta é desejada, indicando uma melhor capacidade de predição, enquanto um desvio padrão menor sugere uma maior consistência nas predições. Essas informações são cruciais para a seleção da combinação mais eficaz, considerando tanto a precisão média quanto a consistência nas predições.
 
+Nesta sessão, serão apresentados os resultados dos experimentos realizados para avaliar o desempenho de diferentes combinações de pré-processamento em algoritmos de Aprendizado de Máquina. A análise se concentra em três algoritmos: \textit{Naive Bayes}, \textit{Decision Tree} e \textit{Random Forest}.
 
+\section{\textbf{\textit{Naive Bayes}}}
+Os resultados obtidos com o algoritmo \textit{Naive Bayes} revelam padrões interessantes em relação às diferentes combinações de pré-processamento aplicadas aos dados. Ao considerar a \textit{stemização}, a remoção de \textit{stop words} e a eliminação de caracteres especiais, observamos que a média da acurácia varia entre 82.67\% e 88.00\%. A menor variabilidade ocorre quando a \textit{stemização} é desativada e apenas a remoção de \textit{stop words} é realizada, indicando uma maior consistência nas predições. No entanto, a combinação que inclui todas as técnicas de pré-processamento apresenta a acurácia mais elevada, indicando uma eficácia significativa na melhoria do desempenho do \textit{Naive Bayes} na classificação dos dados.
 
+É relevante notar que o desvio padrão, que representa a dispersão dos resultados, varia de 3.86\% a 6.20\%. Combinações que incluem a remoção de \textit{stop words} demonstram um desvio padrão relativamente mais alto, indicando uma maior variabilidade nos resultados. Esse fenômeno pode ser explorado em investigações futuras para compreender melhor a influência específica da remoção de \textit{stop words} nas predições do \textit{Naive Bayes}. Em geral, os resultados sugerem que a escolha cuidadosa das técnicas de pré-processamento pode impactar significativamente o desempenho do \textit{Naive Bayes} na tarefa de classificação.
 
+Este conjunto de experimentos oferece uma visão detalhada da performance do \textit{Naive Bayes} em diferentes cenários, proporcionando uma base sólida para a tomada de decisões na escolha de combinações ideais para a tarefa em questão. As variações nas taxas de acurácia e desvio padrão entre as diferentes abordagens destacam a importância da otimização do pré-processamento de dados para aprimorar o desempenho do \textit{Naive Bayes}, contribuindo assim para uma implementação mais eficaz em projetos de inteligência artificial.
 
+\section{\textbf{\textit{Decision Tree}}}
+Ao analisar as médias de acurácia do algoritmo \textit{Decision Tree}, observamos uma variação entre 69.99\% e 75.62\%, indicando que as diferentes técnicas de pré-processamento têm um impacto significativo na capacidade do algoritmo em classificar os dados. Notavelmente, a combinação com a remoção de \textit{stop words} apresenta uma acurácia média mais elevada, sugerindo que essa técnica específica desempenha um papel crucial na melhoria do desempenho do algoritmo.
 
+No entanto, ao considerar o desvio padrão, que reflete a variabilidade nos resultados, observamos que combinações com a remoção de \textit{stop words} também exibem maior dispersão. Isso indica que, embora essa técnica possa contribuir para uma acurácia média superior, sua aplicação pode resultar em resultados mais inconsistentes. Essa observação destaca a necessidade de equilibrar a busca por uma acurácia mais elevada com a estabilidade dos resultados ao otimizar combinações para o \textit{Decision Tree}.
 
+\section{\textbf{\textit{Random Forest}}}
+Os resultados obtidos com o algoritmo \textit{Random Forest} revelam padrões intrigantes em relação às diversas combinações de pré-processamento aplicadas aos dados. Ao analisar a média da acurácia, observamos uma variação de 73.51\% a 78.77\%, indicando que o \textit{Random Forest} é sensível às técnicas de pré-processamento. A combinação que inclui a remoção de caracteres especiais demonstra a acurácia média mais alta, sugerindo que a preservação da estrutura textual original pode contribuir positivamente para o desempenho do algoritmo.
 
+É crucial notar que o desvio padrão, que reflete a dispersão dos resultados, varia de 2.87\% a 4.36\%. Combinações que envolvem a remoção de \textit{stop words} exibem um desvio padrão relativamente mais baixo, sugerindo uma consistência maior nas predições do \textit{Random Forest}. Essa constatação destaca a importância da remoção de \textit{stop words} na redução da variabilidade nas previsões do modelo.
 
+\section{\textbf{Análise por Acurácia Média}}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imagens/ResultadoMediaAcuracia.png}
+    \caption{Resultado por acurácia média}
+    \label{fig:resultado-acuracia-media}
+\end{figure}
 
+De acordo com a Figura \ref{fig:resultado-acuracia-media}, que apresenta um gráfico sobre a média das acurácias dos algoritmos, observa-se que o algoritmo \textit{Naive Bayes} atinge uma média de acurácia que varia entre 82.67\% e 88.00\%, destacando-se como uma opção consistente e robusta em diferentes combinações de pré-processamento. O \textit{Random Forest}, por sua vez, demonstra uma faixa de média de acurácia entre 73.51\% e 78.77\%, indicando uma performance sólida, embora com uma variabilidade ligeiramente maior em comparação com o \textit{Naive Bayes}. Essa representação visual oferece uma visão clara do desempenho médio de cada algoritmo, fornecendo uma base para a escolha do modelo mais apropriado para a tarefa em questão.
 
+A análise da Figura \ref{fig:resultado-acuracia-media} revela a notável variação nas médias das acurácias entre as diversas combinações de pré-processamento. Combinações específicas, como a remoção de caracteres especiais, mostram-se particularmente impactantes nas médias das acurácias para ambos os algoritmos, evidenciando a importância crítica das escolhas de pré-processamento na performance geral do modelo. Essa observação ressalta a necessidade de uma abordagem personalizada ao pré-processamento de dados, adaptada às características específicas do conjunto de dados em questão, para maximizar o desempenho preditivo do modelo.
 
+\section{\textbf{Análise por Estabilidade}}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imagens/resultadoDesvioPadrao.png}
+    \caption{Resultado por desvio padrão}
+    \label{fig:resultado-desvio-padrao}
+\end{figure}
+
+A Figura \ref{fig:resultado-desvio-padrao}, que ilustra o gráfico de análise por desvio padrão ou estabilidade, oferece uma visão crucial sobre a consistência e estabilidade dos resultados obtidos nas diferentes combinações de pré-processamento e algoritmos. Ao observar a variação do desvio padrão em relação às diferentes técnicas empregadas, é possível identificar padrões claros que influenciam a estabilidade das predições. Combinações que envolvem a remoção de \textit{stop words} tendem a exibir desvios padrão mais baixos, indicando uma maior uniformidade nas previsões, especialmente notável nos algoritmos \textit{Naive Bayes} e \textit{Random Forest}.
+
+A análise por estabilidade também destaca a sensibilidade de certos algoritmos a determinadas técnicas de pré-processamento. Por exemplo, a Figura \ref{fig:resultado-desvio-padrao} pode revelar informações interessantes sobre a influência da \textit{stemização} na variabilidade das previsões. Combinações que incluem a \textit{stemização}, em combinação com outras técnicas, podem apresentar desvios padrão mais elevados, indicando uma maior instabilidade nas predições. Essa informação é essencial para uma tomada de decisão informada ao escolher a abordagem mais apropriada para maximizar a estabilidade do modelo em situações práticas.
+
+\section{\textbf{Resultados Gerais}}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{lccc}
+    \toprule
+    \textbf{Combinação} & \textbf{Naive Bayes} & \textbf{Decision Tree} & \textbf{Random Forest} \\
+    \midrule
+    C1 & 87.67\% & 73.59\% & 78.15\% \\
+    C2 & 88.00\% & 73.91\% & 77.76\% \\
+    C3 & 82.67\% & 75.69\% & 73.51\% \\
+    C4 & 86.67\% & 71.20\% & 78.85\% \\
+    C5 & 83.33\% & 71.60\% & 74.37\% \\
+    C6 & 82.67\% & 75.71\% & 73.23\% \\
+    C7 & 86.33\% & 71.44\% & 78.64\% \\
+    C8 & 84.67\% & 70.10\% & 74.32\% \\
+    \bottomrule
+  \end{tabular}
+  \caption{Resultados da média da acurácia para diferentes combinações de pré-processamento e algoritmos}
+  \label{tab:resultados}
+\end{table}
+
+Os resultados da Tabela \ref{tab:resultados} demonstram a influência das diferentes combinações de pré-processamento de texto e algoritmos de Aprendizado de Máquina na acurácia média dos modelos. Ao analisar os diferentes conjuntos de parâmetros, observamos que a \textit{stemização} tende a contribuir positivamente para o desempenho dos modelos, apresentando médias de acurácia superiores em comparação com as combinações sem essa técnica.
+
+A remoção de \textit{stop words}, por outro lado, mostra um impacto variável, sendo que em alguns casos a presença destas palavras não influencia significativamente a acurácia média, enquanto em outros há uma melhoria notável. Quanto à remoção de caracteres especiais, os resultados indicam uma tendência menos consistente, com variações nas médias de acurácia dependendo da combinação específica de técnicas.
+
+De modo geral, os resultados sugerem que a \textit{stemização} é uma estratégia promissora para aprimorar a acurácia média dos modelos, enquanto a remoção de \textit{stop words} e caracteres especiais pode ter impactos mais sutis e depende das características específicas do conjunto de dados e do algoritmo empregado. Essas descobertas contribuem para o entendimento do papel crucial do pré-processamento na construção de modelos eficazes de aprendizado de máquina para tarefas de processamento de texto.
+
+Nas Figuras \ref{fig:palavras-sem-pre-processamentol} e \ref{fig:palavras-com-pre-processamentol} podemos ver o resultado da aplicação dos algoritmos de pré-processamento. Na Figura \ref{fig:palavras-sem-pre-processamentol}, conseguimos identificar as palavras que mais se repetem na base de dados e suas frequências, antes dos pré-processamentos. Na Figura \ref{fig:palavras-com-pre-processamentol}, são apresentadas todas as palavras após a aplicação dos três pré-processamentos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imagens/PalavrasSemPreProcessamento.png}
+    \caption{Frequência de palavras sem pré-processamento}
+    \label{fig:palavras-sem-pre-processamentol}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{imagens/PalavrasComTodosPreProcessamento.png}
+    \caption{Frequência de palavras com os pré-processamentos aplicados}
+    \label{fig:palavras-com-pre-processamentol}
+\end{figure}
+
+Os resultados da análise demonstram a influência das diferentes combinações de pré-processamento de texto e algoritmos de Aprendizado de Máquina na acurácia média dos modelos. Combinações que incluem a remoção de \textit{stop words} e caracteres especiais tendem a produzir resultados mais consistentes em relação à média da acurácia, enquanto a \textit{stemização}, embora valiosa em alguns cenários, pode variar em eficácia. Além disso, os resultados ressaltam a superioridade do \textit{Naive Bayes} e do \textit{Random Forest} em relação à \textit{Decision Tree}, destacando a necessidade de escolher algoritmos adequados para tarefas específicas. Com base nos resultados dos experimentos, é evidente que a escolha da melhor combinação de pré-processamento depende do algoritmo de Aprendizado de Máquina em questão.
 
 
 % ---------------------------------------------------------------------------------------------
 % Considerações Finais
 % ---------------------------------------------------------------------------------------------
-\chapter{Conclusão}
+\chapter{Considerações Finais e Trabalhos Futuros}
 \label{chapter:conclusao}
+O estudo apresenta que técnicas de pré-processamento, como a remoção de \textit{stop words}, a \textit{stemização} e a eliminação de caracteres especiais, pode aprimorar a qualidade dos dados textuais, conforme sua aplicação. Além disso, a escolha do algoritmo de Aprendizado de Máquina influencia diretamente na identificação de padrões que indicam a veracidade das notícias. Ao avaliar diferentes combinações dessas técnicas, podemos aprimorar a precisão e eficiência na detecção de notícias falsas, permitindo uma resposta mais eficaz à disseminação da desinformação.
 
+A partir da análise dos resultados, a heurística sugere que a combinação de técnicas de pré-processamento que proporcionou o melhor desempenho na detecção de \textit{fake news} com base nos títulos das notícias foi aquela em que a \textit{stemização} e a remoção de \textit{stop words} foi desativada, e a remoção de caracteres especiais estava ativada. Nesta combinação, o algoritmo \textit{Naive Bayes} alcançou a melhor média de acurácia. Essa combinação demonstrou uma eficácia consistente e um nível aceitável de variação nos resultados.
 
+À medida que as técnicas de IA e PLN continuam a evoluir, é fundamental que pesquisadores empenhem-se em aprimorar ainda mais esses métodos, visando a um ambiente de informação mais confiável e seguro. A detecção de \textit{fake news} é um esforço constante, e a pesquisa nesta área desempenha um papel importante na promoção da verdade e da transparência na era digital.
 
+Trabalhos futuros poderão ampliar a análise para incluir a comparação entre a análise de notícias completas e análises baseadas apenas nos títulos, a fim de avaliar tanto o tempo de processamento quanto a acurácia em um contexto mais abrangente. Esta extensão permitiria uma visão mais completa das diferenças entre esses métodos de análise de notícias, contribuindo para uma compreensão mais profunda do desempenho das técnicas de detecção de \textit{fake news}.
 
-
-
-
-
-
-
-
-
-
-
-
+Outros trabalhos posteriores poderiam explorar um \textit{plugin} ou extensão que permita a análise em tempo real de títulos de notícias, oferecendo notificações visuais imediatas para os usuários. Esse \textit{plugin} poderia ser facilmente integrado a navegadores, fornecendo aos leitores uma ferramenta prática para avaliar a credibilidade das notícias à medida que as acessam. Essa abordagem teria o potencial de contribuir significativamente para a identificação rápida de notícias potencialmente falsas ou sensacionalistas, capacitando os usuários a tomar decisões mais informadas sobre o conteúdo que consomem.
 
 % ---
 % Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
@@ -617,9 +802,6 @@ O Processamento de Linguagem Natural (PLN) é a subárea da Inteligência Artifi
 
 % ---------------------------------------------------------------------------------------------
 % Referências bibliográficas
-
-
-
 
 % ---------------------------------------------------------------------------------------------
 \bibliography{abntex2-modelo-references}
@@ -644,16 +826,6 @@ O Processamento de Linguagem Natural (PLN) é a subárea da Inteligência Artifi
 %\partapendices
 %\chapter{Modelagem do Sistema DOR}
 
-
-
-
-
-
-
-
-
-
-
 %\end{apendicesenv}
 % ---
 
@@ -671,12 +843,6 @@ O Processamento de Linguagem Natural (PLN) é a subárea da Inteligência Artifi
 %\partanexos
 
 %\chapter{Protocolo de Aquisição de Imagens}
-
-
-
-
-
-
 
 
 %\end{anexosenv}
